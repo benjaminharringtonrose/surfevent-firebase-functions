@@ -5,6 +5,9 @@ admin.initializeApp();
 import { onCreateEvent } from "./onCreateEvent";
 export { onCreateEvent };
 
+import { onCreateHeat } from "./onCreateHeat";
+export { onCreateHeat };
+
 import { onCreateUser } from "./onCreateUser";
 export { onCreateUser };
 

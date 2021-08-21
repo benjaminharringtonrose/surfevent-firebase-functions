@@ -1,14 +1,16 @@
 import * as functions from "firebase-functions";
 import { sendNotification } from "./sendNotification";
 
-export const scheduleMessage = functions.pubsub
-  .schedule("every day 15:35") // min: 0-59, hour: 0-23, dayOfMonth: 1-31
-  .timeZone("America/New_York") // month: 1-12, dayOfWeek: 0-6
-  .onRun(() => {
+export const onCreateHeat = functions.firestore
+  .document("heats/{heatId}")
+  .onCreate(async (snap, context) => {
+    const { heatId } = context.params;
+    const data = snap.data();
+    console.log(`heatId ${heatId} created`);
+    console.log("data:", data);
     sendNotification(
       "eX49V3VgwEuinbnknk0Nqc:APA91bGeyWlcND4QlMMpYlD6jvEnTPk99seJrAAsSfS6u5feNzmfsitxzAe6LpgHhhftelgbxrX3dqbxIjGuXXfQhd8Ez3emezr4xojepSKm_582UGkZ1hhVseG0PHA9dtnfslBWz_lx",
       "You're killing it",
-      "Keep crushin' it my dude"
+      heatId
     );
-    return null;
   });
