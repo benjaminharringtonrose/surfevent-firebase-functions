@@ -1,9 +1,12 @@
-import * as functions from "firebase-functions";
+// https://firebase.google.com/docs/functions/typescript
+import * as admin from "firebase-admin";
+admin.initializeApp();
 
-// // Start writing Firebase Functions
-// // https://firebase.google.com/docs/functions/typescript
-//
-// export const helloWorld = functions.https.onRequest((request, response) => {
-//   functions.logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+import { onCreateEvent } from "./onCreateEvent";
+export { onCreateEvent };
+
+import { onCreateUser } from "./onCreateUser";
+export { onCreateUser };
+
+import { scheduleMessage } from "./scheduleMessage";
+export { scheduleMessage };

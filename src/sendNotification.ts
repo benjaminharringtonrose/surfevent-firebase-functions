@@ -1,7 +1,11 @@
 import * as firebase from "firebase-admin";
 import { Collection, Mail, User } from "./models";
 
-export const sendNotification = async (userId: string, title: string, body: string) => {
+export const sendNotification = async (
+  userId: string,
+  title: string,
+  body: string
+): Promise<void> => {
   const userRef = firebase.firestore().collection("users").doc(userId);
   const userDoc = await userRef.get();
   const user = userDoc.data() as User;

@@ -23,11 +23,19 @@ module.exports = {
   ],
   plugins: ["@typescript-eslint", "import"],
   rules: {
-    quotes: ["error", "double"],
-    indent: ["error", 2],
-    ["max-len"]: ["error", 100],
+    ["quotes"]: ["error", "double"],
+    ["indent"]: ["error", 2],
     ["object-curly-spacing"]: [2, "always"],
-    ["no-unused-vars"]: 0,
-    ["no-non-null-assertion"]: true,
+    ["no-unused-vars"]: "off",
+    ["no-non-null-assertion"]: 0,
+    ["max-len"]: [
+      "error",
+      100,
+      {
+        ["ignoreComments"]: true,
+        ["ignoreStrings"]: true,
+        ["ignoreTrailingComments"]: true,
+      },
+    ],
   },
 };
