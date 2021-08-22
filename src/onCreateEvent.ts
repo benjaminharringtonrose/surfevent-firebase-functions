@@ -7,7 +7,7 @@ export const onCreateEvent = functions.firestore
   .onCreate(async (snap) => {
     const event = snap.data() as Event;
     try {
-      await sendNotification(event.uid, "Event Successfully Created");
+      await sendNotification(event.uid, "Success", "Event Successfully Created");
     } catch (e) {
       throw new Error(e);
     }
