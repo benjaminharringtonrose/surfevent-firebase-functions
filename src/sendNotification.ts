@@ -3,8 +3,8 @@ import { Collection, Mail, User } from "./models";
 
 export const sendNotification = async (
   userId: string,
-  title: string,
-  body: string
+  title?: string,
+  body?: string
 ): Promise<void> => {
   const userRef = firebase.firestore().collection("users").doc(userId);
   const userDoc = await userRef.get();
@@ -28,7 +28,7 @@ export const sendNotification = async (
       to: [user.email],
       message: {
         subject: `SurfEvent - ${title}`,
-        text: body,
+        text: body || "",
       },
     };
     console.log("sending email my g");

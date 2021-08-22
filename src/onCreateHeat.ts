@@ -7,7 +7,7 @@ export const onCreateHeat = functions.firestore
   .onCreate(async (snap) => {
     const heat = snap.data() as Heat;
     try {
-      await sendNotification(heat.uid, "You're killing it", heat.heatId);
+      await sendNotification(heat.uid, "Heat Successfully Created");
     } catch (e) {
       throw new Error(e);
     }
