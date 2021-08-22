@@ -63,3 +63,12 @@ export interface Heat {
   dateStart: Date;
   timeStart: Date;
 }
+
+export interface Event {
+  uid: string;
+  eventId: string;
+  eventName: string;
+  timeStart: Date;
+  dateStart: Date;
+  dateEnd: Date;
+}

@@ -1,10 +1,14 @@
 import * as functions from "firebase-functions";
+import { sendNotification } from "./sendNotification";
+import { Event } from "./models";
 
 export const onCreateEvent = functions.firestore
   .document("events/{eventId}")
-  .onCreate(async (snap, context) => {
-    const eventId = context.params.eventId;
-    const data = snap.data();
-    console.log(`eventId ${eventId} created`);
-    console.log("data:", data);
+  .onCreate(async (snap) => {
+    const event = snap.data() as Event;
+    try {
+      await sendNotification(event.uid, "title", "body");
+    } catch (e) {
+      throw new Error(e);
+    }
   });

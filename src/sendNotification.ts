@@ -10,7 +10,7 @@ export const sendNotification = async (
   const userDoc = await userRef.get();
   const user = userDoc.data() as User;
   if (!user) {
-    throw new Error("no user");
+    throw new Error("sendNotification: no user");
   }
   if (user.messagingTokens && user.messagingTokens.length > 0) {
     const message: firebase.messaging.MessagingPayload = {
