@@ -1,5 +1,4 @@
 import * as functions from "firebase-functions";
-import { firestore } from "firebase-admin";
 import { Heat } from "./models";
 import { sendNotification } from "./sendNotification";
 
