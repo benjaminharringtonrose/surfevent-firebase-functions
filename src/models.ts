@@ -22,6 +22,8 @@ export enum Collection {
   user = "user",
   mail = "mail",
   messages = "messages",
+  organizations = "organizations",
+  adminRequests = "adminRequests",
 }
 
 export enum ESA_DIVISIONS {
@@ -90,4 +92,11 @@ export interface Event {
   timeStart: Date;
   dateStart: Date;
   dateEnd: Date;
+}
+
+export interface AdminRequest {
+  adminRequestId: string;
+  organizationId: string;
+  uid: string;
+  name: string;
 }

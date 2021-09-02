@@ -13,3 +13,6 @@ export { onCreateUser };
 
 import { scheduleMessage } from "./scheduleMessage";
 export { scheduleMessage };
+
+import { onCreateAdminRequest } from "./onCreateAdminRequest";
+export { onCreateAdminRequest };
