@@ -19,7 +19,7 @@ export interface Score {
 export enum Collection {
   events = "events",
   heats = "heats",
-  user = "user",
+  users = "users",
   mail = "mail",
   messages = "messages",
   organizations = "organizations",
@@ -63,7 +63,7 @@ export interface User {
   providers?: string[];
   messagingTokens?: string[];
   isAdmin: boolean;
-  isPendingAdmin: boolean;
+  isUserRolePending: boolean;
 }
 
 export interface Mail {

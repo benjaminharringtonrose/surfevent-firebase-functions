@@ -13,7 +13,7 @@ export const onCreateUser = functions.auth.user().onCreate(async (user) => {
     providers: user.providerData?.map((provider) => provider.providerId),
     createdOn: new Date(),
     isAdmin: false,
-    isPendingAdmin: false,
+    isUserRolePending: true,
   };
   await firebase.firestore().collection("users").doc(userRecord.uid!).set(userRecord);
 });
