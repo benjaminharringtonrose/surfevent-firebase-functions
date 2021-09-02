@@ -56,14 +56,14 @@ export interface User {
   firstName?: string;
   lastName?: string;
   email: string;
-  timestamp: number;
+  createdOn: Date; // keep as Date
   chatRooms?: string[];
   surfHeats?: string[];
   surfEvents?: string[];
   providers?: string[];
   messagingTokens?: string[];
   isAdmin: boolean;
-  pendingAdmin: boolean;
+  isPendingAdmin: boolean;
 }
 
 export interface Mail {
