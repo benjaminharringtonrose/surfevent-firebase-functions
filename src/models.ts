@@ -94,6 +94,13 @@ export interface Event {
   dateEnd: Date;
 }
 
+export interface Organization {
+  organizationId: string;
+  name: string;
+  acronym: string;
+  email: string;
+}
+
 export interface AdminRequest {
   adminRequestId: string;
   organizationId: string;

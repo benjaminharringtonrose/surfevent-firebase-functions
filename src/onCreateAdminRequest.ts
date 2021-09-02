@@ -1,6 +1,6 @@
-import { firebase } from "@react-native-firebase/firestore";
+import * as firebase from "firebase-admin";
 import * as functions from "firebase-functions";
-import { AdminRequest, Collection, Mail } from "./models";
+import { AdminRequest, Collection, Mail, Organization } from "./models";
 
 export const onCreateAdminRequest = functions.firestore
   .document(`${Collection.adminRequests}/{adminRequestId}`)
@@ -8,12 +8,12 @@ export const onCreateAdminRequest = functions.firestore
     try {
       const adminRequest = snap.data() as AdminRequest;
       if (adminRequest.organizationId) {
-        const organization = await firebase
+        const response = await firebase
           .firestore()
           .collection(Collection.organizations)
-          .where("organizationId", "==", adminRequest.organizationId)
+          .doc(adminRequest.organizationId)
           .get();
-
+        const organization = response.data() as Organization;
         const email: Mail = {
           to: [organization.email],
           message: {
