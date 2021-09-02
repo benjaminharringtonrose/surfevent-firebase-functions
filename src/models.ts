@@ -62,6 +62,7 @@ export interface User {
   surfEvents?: string[];
   providers?: string[];
   messagingTokens?: string[];
+  isAdmin: boolean;
 }
 
 export interface Mail {

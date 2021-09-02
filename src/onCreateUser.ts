@@ -11,6 +11,7 @@ export const onCreateUser = functions.auth.user().onCreate(async (user) => {
     uid: user.uid,
     email: user.email,
     providers: user.providerData?.map((provider) => provider.providerId),
+    isAdmin: false,
   };
   await firebase.firestore().collection("users").doc(userRecord.uid!).set(userRecord);
 });
