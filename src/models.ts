@@ -63,6 +63,7 @@ export interface User {
   providers?: string[];
   messagingTokens?: string[];
   isAdmin: boolean;
+  pendingAdmin: boolean;
 }
 
 export interface Mail {
